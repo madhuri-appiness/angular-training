@@ -7,13 +7,14 @@ app.controller("main", function ($scope) {
      
         $scope.regux = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if ($scope.email == "") {
-           alert("please enter email");
+          $scope.err1 = "Please enter email";
         }
         else if(!$scope.regux.test(email)) {
-            alert("Please enter valid email")
+            $scope.err1 = "Please enter valid email";
+        
         }
         else if($scope.password == ""){
-            alert("enter password");
+           $scope.err3 = "Please password";
         }
         else{
             alert("Thank you");
@@ -21,6 +22,10 @@ app.controller("main", function ($scope) {
  
     }
     $scope.limit = 140;
+    $scope.twitter = function(d){
+        $scope.limit = 140;
+            $scope.limit = $scope.limit - d.length;
+    }
     $scope.showval = true;
     $scope.show = function(){
         if($scope.showval == true){

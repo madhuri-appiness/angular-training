@@ -6,35 +6,83 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="app.js"></script>
+    <style>
+        .imageslider{
+            position:relative;
+            max-width:400px;
+            margin:0 auto;
+        }
+        #leftslide .fa,#rightslide .fa{
+           font-size:30px;
+        }
+        #leftslide{
+            position:absolute;
+            top:50%;
+            left:0;
+        }
+        #rightslide{
+            position:absolute;
+            top:50%;
+            right:0;
+        }
+</style>
+
 </head>
 
-<body ng-controller="main">
-<div class="container">
+<body >
+<div class="container" ng-controller="main">
     <div class="row">
         <div class="col-md-5">
             <div class="form-group">
                 <label>Email</label>
                 <input type="text" ng-model="email" class="form-control">
+                <p ng-bind="err1">{{ err1 }}</p>
             </div>
             <div class="form-group">
                 <label>passsWord</label>
                 <input type="password" ng-model="password" class="form-control">
+                <p ng-model="err3">{{ err3 }}</p>
             </div>
             <button class="btn btn-primary" ng-click="login(email,password)">Change</button>
         </div>
         <div class="col-md-5">
             <h2>Twitter Box</h2>
             <textarea ng-model="text" class="form-control" ng-change="twitter(text)"></textarea>
-            <p>{{limit - text.length}}</p>
+             <p>{{limit}}</p> 
         </div>
     </div>
 </div>
-<!-- <div>
+
+ <div>
     <h2 ng-if="showval==true">Show text</h2>
     <button ng-click="show()">Click</button>
-</div> -->
-
-
+</div> 
+<div class="imageslider">
+    <img src="images/img1.jpg" id="img">
+     <div id="leftslide">
+        <i class="fa fa-chevron-left" aria-hidden="true" onclick="slide(-1)"></i>
+    </div>
+    <div id="rightslide">
+        <i class="fa fa-chevron-right" aria-hidden="true"  onclick="slide(1)"></i>
+    </div>
+</div>
+<div ng-include="'main.html'"></div>
+<script>
+    var count = 1;
+    var total = 4;
+    function slide(x){
+        var image = document.getElementById("img");
+        count = count + x;
+        if(count > total){
+            count = 1;
+        }
+        if(count < 1 ){
+            count = total;
+        }
+        image.src = "images/img" + count + ".jpg";
+    }
+</script>
 </body>
 </html>

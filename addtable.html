@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+    <meta charset="UTF-8">
+    <title>Anguar js set up</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <script src="controller/app.js"></script>
+ 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <section ng-controller="ctrl">
+ <div class="row">
+   <div class="col-md-6">
+     <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Profile</th>
+                <th>Sex</th>
+                <th>City</th>
+            </tr>
+           <tr ng-repeat="val in arr">
+                <td>{{val.name}}</td>
+                <td>{{val.profile}}</td>
+                <td>{{val.sex}}</td> 
+                <td>{{val.city}}</td>              
+           </tr>
+     </table>
+   </div>
+   <div class="col-md-6">
+       <div class="form-group">
+    <label>name</label>
+    <input type="text" class="form-control" ng-model="input1">
+  </div>
+  <div class="form-group">
+    <label>Profile</label>
+    <input type="text" class="form-control" ng-model="input2">
+  </div>
+  <div class="radio">
+        <label><input type="radio" ng-model='result' ng-value='"male"' name="radio1">male</label>
+        <label><input type="radio" ng-model='result' ng-value='"female"' name="radio1">female</label>
+    </div>
+    <div class="select">
+         <label>select city</label>
+    <select ng-model="select" ng-init="select = data[0].city">
+      <option ng-repeat="option in data" value="{{option.city}}">{{option.city}}</option>
+    </select>
+    </div>
+    
+     <button class="btn btn-primary" ng-click="add(input1,input2,result,select)"> add</button>
+     <button class="reset btn-warning" ng-click="reset()">Reset</button>
+   </div>
+ </div>
+        
+</section>
+
+
+
+</body>
+</html>

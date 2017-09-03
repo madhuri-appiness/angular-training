@@ -55,10 +55,14 @@ app.controller('mycart', function($scope) {
 
     //total quantity
     $scope.totalqnt = function() {
-        var totalqnt = 0;
-        for (var i = 0; i < $scope.itemList.length; i++) {
-            totalqnt += $scope.itemList[i].qnt;
+            var totalqnt = 0;
+            for (var i = 0; i < $scope.itemList.length; i++) {
+                totalqnt += $scope.itemList[i].qnt;
+            }
+            return totalqnt;
         }
-        return totalqnt;
+        //remove item
+    $scope.remove = function(index) {
+        $scope.itemList.splice(index, 1);
     }
 });

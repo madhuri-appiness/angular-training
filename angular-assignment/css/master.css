@@ -1,0 +1,17 @@
+
+.sub-apartment{
+    max-width: 200px;
+}
+.add{
+    max-width: 43px;
+    min-height: 43px;
+    font-size: 30px;
+    background: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.copy-holder , .delete{
+    display: inline-block;
+}

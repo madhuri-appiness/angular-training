@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title></title>
+        <script src="plugin/angular.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/master.css">
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <script src="app.js"></script>
+        <script src="controller/maincontroller.js"></script>
+    </head>
+    <body ng-app="app">
+        <div class="container" ng-controller="apartment">
+                <h1>Apartment Structure</h1>
+     <div class="row"> 
+         <div class="col-md-6" ng-repeat="item in arr track by $index">     
+           <div class="apartment-holder" > 
+            <div class="form-group">
+                <label>Apartment</label>
+                <input type="text" class="form-control" placeholder="Name" ng-model="item.input1">
+               </div>
+               <div class="sub-apartment">                
+                    <div class="form-group" ng-repeat="data in item.submenu">
+                            <label>Sub-Apartment</label>
+                            <input type="text" class="form-control" ng-model="data.name">
+                        </div> 
+                 
+               </div>
+           </div>
+           <div class="add" ng-click="addApartment()">
+            +
+        </div>
+        </div>     
+        <div class="col-md-6">      
+           <div class="copy-holder">
+               <button class="btn-lg btn-success" ng-click="copy()">Copy</button>
+           </div>
+           <div class="delete">
+            <button class="btn-lg btn-warning" ng-click="delete($index)">Delete</button>
+           </div>
+        </div>
+        </div>
+        </div>
+       
+    </body>
+</html>

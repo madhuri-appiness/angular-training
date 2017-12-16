@@ -31,6 +31,12 @@ app.controller('apartment', function($scope){
     $scope.arr.push($scope.obj_Val); 
 
   };
+
+  $scope.deleteSubApart = function(item){
+    if($scope.arr[$scope.arr.length - 1].submenu.length > 1){
+      $scope.arr[$scope.arr.length - 1].submenu.splice(item,1);
+    }
+  }
    
   $scope.delete = function(index){
     if($scope.arr.length > 1){

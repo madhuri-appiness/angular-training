@@ -29,7 +29,6 @@ app.controller('apartment', function($scope){
      submenu: $scope.copyObj($scope.arr[$scope.arr.length - 1].submenu)
    
     }
-
     $scope.arr.push($scope.obj_Val); 
     console.log($scope.arr);
   };
@@ -40,14 +39,25 @@ app.controller('apartment', function($scope){
       $scope.arr[arr_index].submenu.splice(subindex, 1);
     }
   }
-   
+  $scope.copyApart = function(apart,copysub){
+    $scope.sec_Obj ={
+        name:$scope.arr[apart].submenu[copysub].name,
+        id:$scope.arr[apart].submenu[copysub].id
+      //  submenu: $scope.copysubObj($scope.arr[apart].submenu)
+
+    }
+    $scope.arr[apart].submenu.push($scope.sec_Obj);
+    console.log($scope.arr);
+  }
   $scope.delete = function(index){
     if($scope.arr.length > 1){
             $scope.arr.splice(index,1);
     }
       
   }
-    
+  $scope.copysubObj = function(sec_obj) {
+    return JSON.parse(JSON.stringify(sec_obj));
+  }
   $scope.copyObj = function(obj) {
     return JSON.parse(JSON.stringify(obj));
   }

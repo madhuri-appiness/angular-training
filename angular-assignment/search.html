@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title></title>
+        <script src="plugin/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-sanitize.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/master.css">
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="app.js"></script>
+        <script src="filter/searchfilter.js"></script>
+        <script src="controller/searchcontroller.js"></script>
+        
+        
+       
+    </head>
+    <body ng-app="app">
+            <div class="container" ng-controller="customsearch">
+                <div class="project-holder">
+                    <h3>Projects</h3>
+                   <div class="form-group search_field">
+                        <i class="fa fa-search" aria-hidden="true"></i> <input type="text" class="form-control" ng-model="projectName" placeholder="search...">
+                  </div>
+                 <ul class="project-list"  ng-repeat="data in project_List | search:projectName | searchName:projectName">
+                     <!-- <li><img src="{{data.image.link}}" alt=""></li> -->
+                    <li class="projectName"> 
+                        <li>{{$index}}</li>
+                        <li ng-bind-html="data.name | searchName:projectName">
+                            {{data.name}}
+                        </li>
+                         <ul  ng-repeat="items in data.groups | search:projectName | searchName:projectName">
+                           {{$index}}
+                            <li ng-bind-html="items.name | searchName:projectName">{{items.name}}</li>
+                         </ul>
+                     </li>
+                     <li >
+
+                     </li>
+                 </ul>
+                </div>
+                
+            </div>
+          
+                
+           
+            
+           
+        </body>
+</html>

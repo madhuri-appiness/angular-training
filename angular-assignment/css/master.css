@@ -15,3 +15,47 @@
 .copy-holder , .delete{
     display: inline-block;
 }
+.project-list li{
+list-style-type: none;
+display: inline-block;
+vertical-align: text-top;
+}
+
+.highlighted {
+    background-color: yellow; 
+    font-weight: 600;
+   }
+.search_field{
+    position: relative;
+    margin-top: 20px;
+}
+.search_field input{
+    padding: 16px 30px;
+}
+.fa-search{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.project-holder{
+    margin-top: 30px;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+}
+.project-holder h3{
+    margin: 0;
+}
+.project-list .projectName{
+    color: #2e6da4;
+    font-weight: 600;
+    font-size:18px;
+}
+.project-list .projectName ul li{
+    color: #000;
+    font-weight: 400;
+    font-size:16px;
+}
+.selected {
+    background-color:red;
+  }
